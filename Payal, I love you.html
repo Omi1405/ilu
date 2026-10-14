@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Payal, I love you</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Caveat:wght@500;700&display=swap">
+<style>
+:root{
+  --bg:#2b1020; --bg2:#1a0913; --rose:#f4b6c2; --blush:#fbe3e8; --gold:#e9b872; --ink:#fff4f2;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --hand:'Caveat','Segoe Script',cursive;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 50% 0%,var(--bg) 0%,var(--bg2) 75%) fixed;background-color:var(--bg2);color:var(--ink);font-family:var(--serif);font-size:1.25rem;line-height:1.7;overflow-x:hidden}
+#hearts{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.h{position:absolute;bottom:-40px;color:var(--rose);opacity:.0;animation:rise linear infinite}
+@keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}10%{opacity:.55}100%{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+main{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:0 1.5rem}
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.hero .small{font-family:var(--hand);font-size:1.8rem;color:var(--gold);margin:0}
+h1{font-family:var(--serif);font-weight:600;font-style:italic;font-size:clamp(4.5rem,24vw,9.5rem);line-height:.95;margin:.1em 0 .15em;color:var(--blush);letter-spacing:-.01em;text-shadow:0 0 40px rgba(244,182,194,.35)}
+.hero p.sub{max-width:28ch;margin:0 auto 2rem;color:var(--rose)}
+button{font:inherit;cursor:pointer;border:1px solid var(--rose);background:transparent;color:var(--blush);padding:.7rem 1.8rem;border-radius:999px;font-size:1.1rem;transition:background .25s,color .25s}
+button:hover,button:focus-visible{background:var(--rose);color:var(--bg2);outline:none}
+button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.letter{padding:4rem 0}
+.letter p{margin:0 0 1.6rem;opacity:0;transform:translateY(10px);transition:opacity .9s,transform .9s}
+.letter p.on{opacity:1;transform:none}
+.reasons{padding:2rem 0 4rem;text-align:center}
+.reasons h2{font-family:var(--hand);font-weight:700;font-size:2.4rem;color:var(--gold);margin:0 0 1.2rem}
+#reason{min-height:6.5rem;font-style:italic;font-size:1.6rem;color:var(--blush);margin:0 0 1.5rem}
+.end{text-align:center;padding:3rem 0 6rem}
+.end .big{font-size:clamp(2rem,8vw,3.2rem);font-style:italic;color:var(--blush);margin:0 0 1rem;line-height:1.2}
+.sign{font-family:var(--hand);font-size:2.4rem;color:var(--gold);margin:0}
+.sign span{display:block;font-size:1.5rem;color:var(--rose)}
+#pop{position:fixed;inset:0;pointer-events:none;z-index:2}
+@media (prefers-reduced-motion:reduce){.h{animation:none}html{scroll-behavior:auto}.letter p{transition:none}}
+</style>
+</head>
+<body>
+<div id="hearts" aria-hidden="true"></div>
+<canvas id="pop" aria-hidden="true"></canvas>
+<main>
+  <section class="hero">
+    <p class="small">meri sabse favourite insaan ke liye</p>
+    <h1>Payal</h1>
+    <p class="sub">Maine tumhare liye kuch banaya hai, kyunki "I love you" ek text se kahin zyada deserve karta hai.</p>
+    <button id="open">Padho, mere dil mein kya hai</button>
+  </section>
+
+  <section class="letter" id="letter">
+    <p>Payal, I love you. Bahut zyada.</p>
+    <p>Mujhe tumhari hansi bahut pasand hai, jo poore kamre ko halka aur khushnuma bana deti hai. Mujhe pasand hai ki tum apne logon ki kitni parwah karti ho, aur main khushnaseeb hoon ki main bhi unmein se ek hoon.</p>
+    <p>Tumhare saath normal din bhi yaadgaar ban jaate hain. Ek chhoti si walk, koi pagal joke, ya shaant si shaam, sab mere din ka sabse pyaara hissa ban jaata hai.</p>
+    <p>Tum mujhe better, softer aur braver banne ki wajah deti ho. Tumne mujhe ek insaan mein ghar de diya hai, aur main wahan se kabhi jaana nahi chahta.</p>
+    <p>Main ye aksar kehta nahi, isliye aaj saaf-saaf keh raha hoon: tum meri zindagi ki sabse achhi cheez ho.</p>
+  </section>
+
+  <section class="reasons">
+    <h2>Tumse pyaar karne ki wajah</h2>
+    <p id="reason" aria-live="polite">Button dabao, main ek wajah bataunga.</p>
+    <button id="next">Ek aur wajah</button>
+  </section>
+
+  <section class="end">
+    <p class="big">Main tumse jitna keh sakta hoon, usse kahin zyada pyaar karta hoon, Payal.</p>
+    <button id="love">Pyaar wapas bhejo</button>
+    <p class="sign" style="margin-top:2.5rem"><span>hamesha tumhara,</span>Pando</p>
+  </section>
+</main>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // floating hearts
+  var box = document.getElementById('hearts');
+  if(!reduce){
+    for(var i=0;i<16;i++){
+      var s=document.createElement('span');s.className='h';s.textContent='♥';
+      s.style.left=Math.random()*100+'%';
+      s.style.fontSize=(12+Math.random()*22)+'px';
+      s.style.animationDuration=(10+Math.random()*12)+'s';
+      s.style.animationDelay=(-Math.random()*20)+'s';
+      box.appendChild(s);
+    }
+  }
+  // letter reveal
+  var paras=[].slice.call(document.querySelectorAll('.letter p'));
+  document.getElementById('open').addEventListener('click',function(){
+    document.getElementById('letter').scrollIntoView({behavior:reduce?'auto':'smooth'});
+    paras.forEach(function(p,i){setTimeout(function(){p.classList.add('on')},reduce?0:i*1100+300)});
+  });
+  // reasons
+  var reasons=[
+    "Tumhari smile se mere bure din bhi chhote lagne lagte hain.",
+    "Tum aise sunti ho jaise meri har baat matter karti hai.",
+    "Tum andar se bhi aur bahar se bhi bahut khoobsurat ho, roz.",
+    "Tum mujhe tab hasa deti ho jab main ummeed bhi nahi karta.",
+    "Tum mujhpe believe karti ho, jab main khud bhool jaata hoon.",
+    "Tumhari hug duniya ki sabse safe jagah lagti hai.",
+    "Tum meri best friend ho aur meri favourite insaan.",
+    "Tumhare saath hona ghar jaisa lagta hai."
+  ];
+  var r=document.getElementById('reason'),idx=-1;
+  document.getElementById('next').addEventListener('click',function(){
+    idx=(idx+1)%reasons.length;r.textContent=reasons[idx];
+  });
+  // heart burst
+  var c=document.getElementById('pop'),x=c.getContext('2d'),parts=[],raf;
+  function size(){c.width=innerWidth;c.height=innerHeight}size();addEventListener('resize',size);
+  function tick(){
+    x.clearRect(0,0,c.width,c.height);
+    parts=parts.filter(function(p){return p.l>0});
+    parts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.vy+=.06;p.l-=1;x.globalAlpha=Math.max(p.l/90,0);x.fillStyle=p.c;x.font=p.s+'px serif';x.fillText('♥',p.x,p.y)});
+    if(parts.length)raf=requestAnimationFrame(tick);else x.clearRect(0,0,c.width,c.height);
+  }
+  document.getElementById('love').addEventListener('click',function(e){
+    if(reduce)return;
+    var b=e.currentTarget.getBoundingClientRect(),cols=['#f4b6c2','#e9b872','#fbe3e8','#ff6f91'];
+    for(var i=0;i<60;i++){var a=Math.random()*Math.PI*2,v=2+Math.random()*5;
+      parts.push({x:b.left+b.width/2,y:b.top+b.height/2,vx:Math.cos(a)*v,vy:Math.sin(a)*v-3,l:90,s:14+Math.random()*18,c:cols[i%4]});}
+    cancelAnimationFrame(raf);tick();
+  });
+})();
+</script>
+</body>
+</html>
